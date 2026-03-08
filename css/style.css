@@ -206,3 +206,47 @@ body {
         width: 100%;
     }
 }
+
+/* Content Pages (Exhibits, Awards, Reviews) */
+.content-page {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+.content-page h1 {
+    font-family: "Orpheus Pro", serif;
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    font-weight: normal;
+}
+
+.content-group {
+    margin-bottom: 2.5rem;
+}
+
+.content-group-title {
+    font-family: "Orpheus Pro", serif;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.content-item {
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+.content-item a {
+    color: var(--primary-color);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.content-item a:hover {
+    color: #000;
+}
