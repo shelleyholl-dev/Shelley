@@ -4,6 +4,7 @@
     let currentIndex = 0;
     const imageBase = 'gallery/about/image';
     const imageExt = '.jpg';
+    let intervalId = null;
 
     // Preload images
     const preloadedImages = [];
@@ -17,10 +18,34 @@
         const slideshowImg = document.getElementById('slideshow-image');
         if (!slideshowImg) return;
 
-        setInterval(() => {
+        function updateImage() {
             currentIndex = (currentIndex + 1) % totalImages;
             slideshowImg.src = `${imageBase}${currentIndex}${imageExt}`;
-        }, intervalTime);
+        }
+
+        function play() {
+            if (!intervalId) {
+                intervalId = setInterval(updateImage, intervalTime);
+            }
+        }
+
+        function pause() {
+            if (intervalId) {
+                clearInterval(intervalId);
+                intervalId = null;
+            }
+        }
+
+        // Pause slideshow when tab is inactive
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                pause();
+            } else {
+                play();
+            }
+        });
+
+        play();
     }
 
     if (document.readyState === 'loading') {
