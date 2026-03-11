@@ -1,25 +1,31 @@
+/* Global Variables */
 :root {
     --primary-color: #333;
     --text-muted: #666;
     --bg-color: #fff;
+    --border-color: #eee;
     --gap: 2rem;
+    --font-main: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-heading: "Orpheus Pro", serif;
 }
 
+/* Base Styles */
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: var(--font-main);
     margin: 0;
     padding: 0;
     color: var(--primary-color);
     background-color: var(--bg-color);
 }
 
+/* Navigation */
 .top-menu {
     padding: 2rem;
     text-align: center;
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .top-menu a {
@@ -32,13 +38,13 @@ body {
     color: #000;
 }
 
+/* Splash Section */
 .splash {
     max-width: 1200px;
     margin: 0 auto var(--gap);
     padding: 0 2rem;
     display: flex;
     align-items: flex-end;
-    /* Align bio box to bottom of row */
     justify-content: space-between;
     gap: var(--gap);
 }
@@ -70,6 +76,7 @@ body {
     background-color: #333;
 }
 
+/* Gallery Sections */
 .new-work,
 .previous-work {
     max-width: 1500px;
@@ -81,6 +88,15 @@ body {
     gap: var(--gap);
 }
 
+.section-title {
+    font-size: 3rem;
+    line-height: 1.4;
+    color: var(--primary-color);
+    text-align: center;
+    font-family: var(--font-heading);
+    width: 100%;
+}
+
 .gallery-item {
     display: flex;
     flex-direction: column;
@@ -88,7 +104,6 @@ body {
     color: inherit;
     transition: transform 0.3s ease;
     align-items: center;
-    /* Center captions under images */
 }
 
 .gallery-item:hover {
@@ -97,9 +112,7 @@ body {
 
 .gallery-item img {
     height: 300px;
-    /* Constant height */
     width: auto;
-    /* Retain aspect ratio */
     object-fit: contain;
     border-radius: 4px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
@@ -123,15 +136,7 @@ body {
     max-width: 350px;
 }
 
-.section-title {
-    font-size: 3rem;
-    line-height: 1.4;
-    color: var(--primary-color);
-    text-align: center;
-    font-family: "Orpheus Pro", serif;
-    width: 100%;
-}
-
+/* About Page */
 .about {
     max-width: 1500px;
     margin: 0 auto;
@@ -146,12 +151,6 @@ body {
     max-width: 600px;
 }
 
-.about-right img {
-    max-width: 600px;
-    height: auto;
-    display: block;
-}
-
 .about-header {
     display: block;
     margin-top: 1rem;
@@ -159,7 +158,7 @@ body {
     line-height: 1.4;
     color: var(--primary-color);
     text-align: center;
-    font-family: "Orpheus Pro", serif;
+    font-family: var(--font-heading);
     width: 100%;
 }
 
@@ -173,7 +172,62 @@ body {
     width: 100%;
 }
 
-/* Media Queries */
+.about-right img {
+    max-width: 600px;
+    height: auto;
+    display: block;
+}
+
+/* Content Pages (Exhibits, Awards, Reviews) */
+.content-page {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+.content-page h1 {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    font-weight: normal;
+}
+
+.content-group {
+    margin-bottom: 2.5rem;
+}
+
+.content-group-title {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.content-item {
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+.content-item a {
+    color: var(--primary-color);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.content-item a:hover {
+    color: #000;
+}
+
+/* Contact Footer */
+.contact {
+    padding-bottom: 4rem;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
     .splash {
         flex-direction: column;
@@ -199,6 +253,10 @@ body {
         align-items: center;
     }
 
+    .about-header {
+        font-size: 2.5rem;
+    }
+
     .about-right {
         width: 100%;
         display: flex;
@@ -207,17 +265,12 @@ body {
 
     .about-right img {
         max-width: 100%;
-        width: 100%;
+        width: 90%;
         height: auto;
-    }
-
-    .about-header {
-        font-size: 2.5rem;
     }
 }
 
 @media (max-width: 600px) {
-
     .new-work,
     .previous-work {
         padding: 0 1rem;
@@ -231,48 +284,4 @@ body {
         height: auto;
         width: 100%;
     }
-}
-
-/* Content Pages (Exhibits, Awards, Reviews) */
-.content-page {
-    max-width: 900px;
-    margin: 2rem auto;
-    padding: 0 2rem;
-}
-
-.content-page h1 {
-    font-family: "Orpheus Pro", serif;
-    font-size: 3rem;
-    text-align: center;
-    margin-bottom: 3rem;
-    font-weight: normal;
-}
-
-.content-group {
-    margin-bottom: 2.5rem;
-}
-
-.content-group-title {
-    font-family: "Orpheus Pro", serif;
-    font-size: 1.8rem;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-    display: block;
-}
-
-.content-item {
-    margin-bottom: 0.75rem;
-    line-height: 1.6;
-    color: var(--text-muted);
-    font-size: 1.1rem;
-}
-
-.content-item a {
-    color: var(--primary-color);
-    text-decoration: underline;
-    text-underline-offset: 4px;
-}
-
-.content-item a:hover {
-    color: #000;
 }
